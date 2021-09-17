@@ -10,6 +10,8 @@ void main() async {
   MovieRemoteDataSourceImpl datasource = MovieRemoteDataSourceImpl(apiClient);
   await datasource.getTrending();
   await datasource.getPopular();
+  await datasource.getPlayingNow();
+  await datasource.getComingSoon();
 
   runApp(const MyApp());
 }
