@@ -24,10 +24,10 @@ class MovieRemoteDataSourceImpl extends MovieRemoteDataSource {
         });
     if (response.statusCode == 200) {
       final responseBody = json.decode(response.body);
-      final movies = MoviesResultModel.fromJson(responseBody).results;
+      final movies = MoviesResultModel.fromJson(responseBody).movies;
       print(movies);
       return movies;
-    }else{
+    } else {
       throw Exception(response.reasonPhrase);
     }
   }
