@@ -8,6 +8,7 @@ import 'data/datasources/movie_remote_data_source.dart';
 import 'data/repositories/movie_repository_impl.dart';
 import 'domain/entities/app_error.dart';
 import 'domain/entities/movie_entity.dart';
+import 'domain/entities/no_params.dart';
 import 'domain/usecases/get_trending.dart';
 
 void main() async {
@@ -18,7 +19,7 @@ void main() async {
   GetTrending getTrending = GetTrending(repository);
 
   final Either<AppError, List<MovieEntity>> eitherResponse =
-      await getTrending();
+      await getTrending(NoParams());
   eitherResponse.fold(
       (l) => {print('Error: $l')}, (r) => {print("Success: $r")});
 
