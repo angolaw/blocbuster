@@ -1,4 +1,4 @@
-class Results {
+class MovieModel {
   bool adult;
   String backdropPath;
   List<int> genreIds;
@@ -15,7 +15,7 @@ class Results {
   double popularity;
   String mediaType;
 
-  Results(
+  MovieModel(
       {this.adult,
       this.backdropPath,
       this.genreIds,
@@ -32,7 +32,7 @@ class Results {
       this.popularity,
       this.mediaType});
 
-  Results.fromJson(Map<String, dynamic> json) {
+  MovieModel.fromJson(Map<String, dynamic> json) {
     adult = json['adult'];
     backdropPath = json['backdrop_path'];
     genreIds = json['genre_ids'].cast<int>();
