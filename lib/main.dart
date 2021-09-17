@@ -1,28 +1,20 @@
-import 'package:blocbuster/domain/repositories/movie_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
+import 'package:pedantic/pedantic.dart';
 
-import 'data/core/api_client.dart';
-import 'data/datasources/movie_remote_data_source.dart';
-import 'data/repositories/movie_repository_impl.dart';
+import 'di/get_it.dart' as getIt;
 import 'domain/entities/app_error.dart';
 import 'domain/entities/movie_entity.dart';
 import 'domain/entities/no_params.dart';
 import 'domain/usecases/get_trending.dart';
 
 void main() async {
-  Client client = Client();
-  ApiClient apiClient = ApiClient(client);
-  MovieRemoteDataSourceImpl datasource = MovieRemoteDataSourceImpl(apiClient);
-  MovieRepository repository = MovieRepositoryImpl(datasource);
-  GetTrending getTrending = GetTrending(repository);
-
+  unawaited(getIt.init());
+  GetTrending getTrendingUseCase = getIt.getItInstance<GetTrending>();
   final Either<AppError, List<MovieEntity>> eitherResponse =
-      await getTrending(NoParams());
+      await getTrendingUseCase(NoParams());
   eitherResponse.fold(
-      (l) => {print('Error: $l')}, (r) => {print("Success: $r")});
-
+      (l) => {print("Error : $l")}, (r) => {print("Success: $r")});
   runApp(const MyApp());
 }
 
