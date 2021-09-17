@@ -13,7 +13,7 @@ class MovieRepositoryImpl extends MovieRepository {
       final movies = await remoteDataSource.getTrending();
       return movies;
     } on Exception {
-      return null;
+      return [];
     }
   }
 }
