@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:blocbuster/data/core/api_constants.dart';
 import 'package:blocbuster/data/models/movie_model.dart';
+import 'package:blocbuster/data/models/movies_result_model.dart';
 import 'package:http/http.dart';
 
 abstract class MovieRemoteDataSource {
@@ -19,5 +22,13 @@ class MovieRemoteDataSourceImpl extends MovieRemoteDataSource {
         headers: {
           'Content-Type': 'application/json',
         });
+    if (response.statusCode == 200) {
+      final responseBody = json.decode(response.body);
+      final movies = MoviesResultModel.fromJson(responseBody).results;
+      print(movies);
+      return movies;
+    }else{
+      throw Exception(response.reasonPhrase);
+    }
   }
 }
