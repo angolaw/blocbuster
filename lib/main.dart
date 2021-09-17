@@ -5,13 +5,15 @@ import 'package:http/http.dart';
 import 'data/core/api_client.dart';
 import 'data/datasources/movie_remote_data_source.dart';
 import 'data/repositories/movie_repository_impl.dart';
+import 'domain/usecases/get_trending.dart';
 
 void main() async {
   Client client = Client();
   ApiClient apiClient = ApiClient(client);
   MovieRemoteDataSourceImpl datasource = MovieRemoteDataSourceImpl(apiClient);
   MovieRepository repository = MovieRepositoryImpl(datasource);
-  repository.getTrending();
+  GetTrending getTrending = GetTrending(repository);
+  getTrending();
 
   runApp(const MyApp());
 }

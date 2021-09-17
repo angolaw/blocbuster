@@ -1,5 +1,6 @@
 import 'package:blocbuster/domain/entities/movie_entity.dart';
+import 'package:dartz/dartz.dart';
 
 abstract class MovieRepository {
-  Future<List<MovieEntity>> getTrending();
+  Future<Either<AppError, List<MovieEntity>>> getTrending();
 }
