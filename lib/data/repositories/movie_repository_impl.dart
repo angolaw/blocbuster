@@ -15,7 +15,7 @@ class MovieRepositoryImpl extends MovieRepository {
       final movies = await remoteDataSource.getTrending();
       return Right(movies);
     } on Exception {
-      return Left(AppError("Something went wrong"));
+      return const Left(AppError("Something went wrong"));
     }
   }
 }
