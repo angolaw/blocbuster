@@ -1,15 +1,16 @@
 import 'package:blocbuster/data/models/movie_model.dart';
 
 class MoviesResultModel {
-  List<MovieModel> movies;
+  late List<MovieModel> movies;
 
-  MoviesResultModel({this.movies});
+  MoviesResultModel({required this.movies});
 
   MoviesResultModel.fromJson(Map<String, dynamic> json) {
     if (json['results'] != null) {
-      movies = new List<MovieModel>();
+      movies = [];
       json['results'].forEach((v) {
         movies.add(new MovieModel.fromJson(v));
+      });
     }
   }
 
