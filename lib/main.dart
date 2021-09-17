@@ -16,6 +16,7 @@ void main() async {
   MovieRemoteDataSourceImpl datasource = MovieRemoteDataSourceImpl(apiClient);
   MovieRepository repository = MovieRepositoryImpl(datasource);
   GetTrending getTrending = GetTrending(repository);
+
   final Either<AppError, List<MovieEntity>> eitherResponse =
       await getTrending();
   eitherResponse.fold(
