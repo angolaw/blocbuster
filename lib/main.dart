@@ -7,6 +7,7 @@ void main() async {
   Client client = Client();
   MovieRemoteDataSourceImpl datasource = MovieRemoteDataSourceImpl(client);
   await datasource.getTrending();
+  await datasource.getPopular();
 
   runApp(const MyApp());
 }
