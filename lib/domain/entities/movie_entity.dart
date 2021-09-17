@@ -16,8 +16,7 @@ class MovieEntity extends Equatable {
       required this.title,
       required this.voteAverage,
       required this.releaseDate,
-      required this.overview})
-      : assert(id != null, "Movie id must be non-null");
+      required this.overview});
 
   @override
   List<Object?> get props => [id, title];
