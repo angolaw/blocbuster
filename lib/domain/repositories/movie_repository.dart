@@ -1,3 +1,4 @@
+import 'package:blocbuster/domain/entities/app_error.dart';
 import 'package:blocbuster/domain/entities/movie_entity.dart';
 import 'package:dartz/dartz.dart';
 
