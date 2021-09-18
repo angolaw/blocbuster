@@ -6,6 +6,7 @@ import 'package:blocbuster/domain/usecases/get_coming_soon.dart';
 import 'package:blocbuster/domain/usecases/get_playing_now.dart';
 import 'package:blocbuster/domain/usecases/get_popular.dart';
 import 'package:blocbuster/domain/usecases/get_trending.dart';
+import 'package:blocbuster/presentation/blocs/movie_carousel/movie_carousel_bloc.dart';
 import "package:get_it/get_it.dart";
 import 'package:http/http.dart';
 
@@ -34,4 +35,8 @@ Future init() async {
       () => GetPlayingNow(getItInstance()));
   getItInstance.registerLazySingleton<GetComingSoon>(
       () => GetComingSoon(getItInstance()));
+
+  //blocs
+  getItInstance
+      .registerFactory(() => MovieCarouselBloc(getTrending: getItInstance()));
 }
