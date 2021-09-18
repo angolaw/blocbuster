@@ -2,8 +2,9 @@ import 'package:blocbuster/common/constants/sizes.dart';
 import 'package:blocbuster/common/extensions/size_extension.dart';
 import 'package:blocbuster/common/screenutil/screen_util.dart';
 import 'package:blocbuster/domain/entities/movie_entity.dart';
-import 'package:blocbuster/presentation/journeys/home/movie_carousel/movie_card_widget.dart';
 import 'package:flutter/material.dart';
+
+import 'animated_movie_card_widget.dart';
 
 class MoviePageView extends StatefulWidget {
   final List<MovieEntity> movies;
@@ -49,7 +50,9 @@ class _MoviePageViewState extends State<MoviePageView> {
           controller: _pageController,
           itemBuilder: (context, index) {
             final MovieEntity movie = widget.movies[index];
-            return MovieCardWidget(
+            return AnimatedMovieCardWidget(
+              index: index,
+              pageController: _pageController,
               movieId: movie.id,
               posterPath: movie.posterPath,
             );

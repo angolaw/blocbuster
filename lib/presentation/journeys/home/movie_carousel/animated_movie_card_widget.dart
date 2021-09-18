@@ -25,7 +25,7 @@ class AnimatedMovieCardWidget extends StatelessWidget {
       builder: (context, child) {
         double value = 1;
         if (pageController.position.haveDimensions) {
-          value = (pageController.page - index);
+          value = ((pageController.page)! - index);
           value = (1 - (value.abs() * 0.1)).clamp(0.0, 1.0);
           return Align(
             alignment: Alignment.topCenter,
