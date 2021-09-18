@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppColor {
+  //private constructor
   const AppColor._();
 
   static const Color vulcan = Color(0xff141221);
