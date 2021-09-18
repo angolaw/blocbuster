@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:blocbuster/domain/entities/movie_entity.dart';
 import 'package:equatable/equatable.dart';
 
 part '../movie_carousel_event.dart';
