@@ -27,7 +27,14 @@ class _MoviePageViewState extends State<MoviePageView> {
   }
 
   @override
+  void dispose() {
+    // TODO: implement dispose
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Container();
+    return PageView.builder();
   }
 }
