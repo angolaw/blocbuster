@@ -3,6 +3,8 @@ import 'package:blocbuster/presentation/themes/app_colors.dart';
 import 'package:blocbuster/presentation/themes/theme_text.dart';
 import 'package:flutter/material.dart';
 
+import 'journeys/home_screen.dart';
+
 class MovieApp extends StatelessWidget {
   const MovieApp({Key? key}) : super(key: key);
 
@@ -14,18 +16,15 @@ class MovieApp extends StatelessWidget {
     );
     ScreenUtil.init(constraints);
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "Movie App",
-      theme: ThemeData(
-        primaryColor: AppColor.vulcan,
-        scaffoldBackgroundColor: AppColor.vulcan,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        textTheme: ThemeText.getTextTheme(),
-        appBarTheme: const AppBarTheme(elevation: 0),
-      ),
-      home: Container(
-        color: Colors.red,
-      ),
-    );
+        debugShowCheckedModeBanner: false,
+        title: "Movie App",
+        theme: ThemeData(
+          primaryColor: AppColor.vulcan,
+          scaffoldBackgroundColor: AppColor.vulcan,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+          textTheme: ThemeText.getTextTheme(),
+          appBarTheme: const AppBarTheme(elevation: 0),
+        ),
+        home: HomeScreen());
   }
 }

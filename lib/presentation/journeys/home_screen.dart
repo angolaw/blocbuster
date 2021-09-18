@@ -28,6 +28,22 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Stack(
+        fit: StackFit.expand,
+        children: const [
+          FractionallySizedBox(
+            alignment: Alignment.topCenter,
+            heightFactor: 0.6,
+            child: Placeholder(color: Colors.red),
+          ),
+          FractionallySizedBox(
+            alignment: Alignment.bottomCenter,
+            heightFactor: 0.4,
+            child: Placeholder(color: Colors.blue),
+          ),
+        ],
+      ),
+    );
   }
 }
