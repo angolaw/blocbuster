@@ -3,6 +3,8 @@ import 'package:blocbuster/presentation/blocs/movie_carousel/movie_carousel_bloc
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'home/movie_carousel/movie_carousel_widget.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -37,11 +39,14 @@ class _HomeScreenState extends State<HomeScreen> {
             if (state is MovieCarouselLoaded) {
               return Stack(
                 fit: StackFit.expand,
-                children: const [
+                children: [
                   FractionallySizedBox(
                     alignment: Alignment.topCenter,
                     heightFactor: 0.6,
-                    child: Placeholder(color: Colors.red),
+                    child: MovieCarouselWidget(
+                      movies: state.movies,
+                      defaultIndex: state.defaultIndex,
+                    ),
                   ),
                   FractionallySizedBox(
                     alignment: Alignment.bottomCenter,
