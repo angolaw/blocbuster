@@ -1,3 +1,4 @@
+import 'package:blocbuster/presentation/movie_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pedantic/pedantic.dart';
@@ -10,21 +11,4 @@ void main() async {
       SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]));
   unawaited(getIt.init());
   runApp(const MovieApp());
-}
-
-class MovieApp extends StatelessWidget {
-  const MovieApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Container(
-        color: Colors.red,
-      ),
-    );
-  }
 }
